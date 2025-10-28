@@ -4,6 +4,7 @@ from dotenv import load_dotenv
 from google import genai
 from google.genai import types
 
+
 def main():
     print("Hello from ai-agent!")
 

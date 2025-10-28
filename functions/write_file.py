@@ -18,4 +18,4 @@ def write_file(working_directory, file_path, content):
     
     except Exception as e:
 
-        return f"Error: {e}"
+        return f"Error: writing file {e}"

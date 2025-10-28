@@ -18,4 +18,4 @@ def get_file_content(working_directory, file_path):
 
     except Exception as e:
 
-        return f"Error: {e}"
+        return f"Error: getting content {e}"

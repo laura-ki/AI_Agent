@@ -6,6 +6,7 @@ from google.genai import types
 
 
 def main():
+    
     print("Hello from ai-agent!")
 
     load_dotenv()

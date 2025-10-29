@@ -27,15 +27,18 @@ def write_file(working_directory, file_path, content):
 
     if not target_dir.startswith(abs_working_dir):
         return f'Error: Cannot list "{file_path}" as it is outside the permitted working directory'
-    
+    if not os.path.exists(target_dir):
+        try:
+            os.makedirs(os.path.dirname(target_dir), exist_ok=True)
+        except Exception as e:
+            return f"Error: creating directory: {e}"
+    if os.path.exists(target_dir) and os.path.isdir(target_dir):
+        return f'Error: "{file_path}" is a directory, not a file'
     try:
-
-        if not os.path.exists(target_dir):
-            new_dir = os.makedirs(target_dir)
-            with open(new_dir, "w") as f:
-                f.write(content)
-        return f'Successfully wrote to "{file_path}" ({len(content)} characters written)'
-    
+        with open(target_dir, "w") as f:
+            f.write(content)
+        return (
+            f'Successfully wrote to "{file_path}" ({len(content)} characters written)'
+        )
     except Exception as e:
-
-        return f"Error: writing file {e}"
+        return f"Error: writing to file: {e}"

@@ -13,6 +13,7 @@ schema_get_file_content = types.FunctionDeclaration(
                         description="Path to file, relative to the working directory. Access outside the working directory is blocked.",
                     ),
                 },
+                required=["file_path"],
             ),
         )
 

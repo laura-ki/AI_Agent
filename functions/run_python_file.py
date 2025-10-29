@@ -19,6 +19,7 @@ schema_run_python_file = types.FunctionDeclaration(
                     default=[],
                 )
             },
+            required=["file_path"],
         ),
     )
 
